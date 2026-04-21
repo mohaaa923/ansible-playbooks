@@ -1,0 +1,10 @@
+---
+- name: Crear un archivo de prueba
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Crear archivo
+      ansible.builtin.copy:
+        content: "Hola desde AWX"
+        dest: /tmp/prueba-awx.txt
