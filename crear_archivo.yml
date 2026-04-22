@@ -7,4 +7,4 @@
     - name: Crear archivo
       ansible.builtin.copy:
         content: "Hola desde AWX"
-        dest: /tmp/prueba-awx.txt
+        dest: /home/$USER/prueba-awx.txt
