@@ -1,7 +1,7 @@
 ---
 - name: Crear un archivo de prueba
   hosts: all
-  become: true
+  become: false
 
   tasks:
     - name: Crear archivo
