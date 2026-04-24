@@ -5,9 +5,22 @@
 
   tasks:
     - name: Ejecutar script para servidor 10.2.2.1 = DNS
-      script: /scripts/script_10.2.2.10.sh
+      script: /home/CampingDNS/copia_DNS.sh
+      when: inventory_hostname == "10.2.2.1"
+      register: resultado_dns
+
+    - name: Mostrar salida DNS
+      debug:
+        msg: "{{ resultado_dns.stdout_lines }}"
       when: inventory_hostname == "10.2.2.1"
 
-    - name: Ejecutar script para servidor 10.2.2.11
+      
+    - name: Ejecutar script para servidor 10.2.2.3 = WEB
       script: /home/CampingWEB/copia_WEB.sh
+      when: inventory_hostname == "10.2.2.3"
+register: resultado_web
+
+    - name: Mostrar salida WEB
+      debug:
+        msg: "{{ resultado_web.stdout_lines }}"
       when: inventory_hostname == "10.2.2.3"
