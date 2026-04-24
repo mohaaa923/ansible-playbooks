@@ -14,11 +14,10 @@
         msg: "{{ resultado_dns.stdout_lines }}"
       when: inventory_hostname == "10.2.2.1"
 
-      
     - name: Ejecutar script para servidor 10.2.2.3 = WEB
       script: /home/CampingWEB/copia_WEB.sh
       when: inventory_hostname == "10.2.2.3"
-register: resultado_web
+      register: resultado_web
 
     - name: Mostrar salida WEB
       debug:
