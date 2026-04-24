@@ -1,0 +1,13 @@
+---
+- name: Ejecutar script según IP del host
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Ejecutar script para servidor 10.2.2.1 = DNS
+      script: /scripts/script_10.2.2.10.sh
+      when: inventory_hostname == "10.2.2.1"
+
+    - name: Ejecutar script para servidor 10.2.2.11
+      script: /home/CampingWEB/copia_WEB.sh
+      when: inventory_hostname == "10.2.2.3"
